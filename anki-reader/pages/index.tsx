@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         </Upload>
 
         {loading && <p> Loading... </p>}
-        {error && <p>Error! {error} </p>}
+        {error && <p>Error! {error.toString()} </p>}
         {data && <DataDisplay data={data} />}
       </main>
     </div>

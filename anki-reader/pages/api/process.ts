@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const uploadedFile = files.file as formidable.File;
 
         // Unzip .apkg file to temporary upload dir
-        const targetDir = path.resolve('./public/uploads/' + nanoid())
+        const targetDir = path.resolve('/tmp/' + nanoid())
         await extract(uploadedFile.filepath, { dir: targetDir });
 
         // Read in as SQlite database
