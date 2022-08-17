@@ -13,7 +13,22 @@ interface QueryStatus {
 
 const Home: NextPage = () => {
   const [query, setQuery] = useState<QueryStatus>({ loading: false })
+  const [fileurl, setFileurl] = useState('')
   const { loading, error, data } = query;
+
+  const uploadByFileurl = () => {
+    setQuery({loading: true})
+
+    fetch('/api/process', {
+      method: 'post',
+      body: JSON.stringify({
+        url: fileurl
+      })
+    })
+    .then(res => res.json())
+    .then((json) => setQuery({ data: json, loading: false}))
+    .catch(e => setQuery({error: e, loading: false}))
+  }
 
   const uploadProps = {
     action: '/api/process',
@@ -41,8 +56,13 @@ const Home: NextPage = () => {
         </ol>
 
         <Upload {...uploadProps}>
-          <button> Click here to upload your Anki deck </button>
+          <button> Click here to upload your Anki deck (small files) </button>
         </Upload>
+
+        <div style={{display: "flex", flexDirection: "row"}}>
+          <input value={fileurl} onChange={(e) => setFileurl(e.target.value)} />
+          <button onClick={() => uploadByFileurl()}> Upload by file URL (large files) </button> 
+        </div>
 
         {loading && <p> Loading... </p>}
         {error && <p>Error! {error.toString()} </p>}

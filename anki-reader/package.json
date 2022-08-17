@@ -13,6 +13,7 @@
     "formidable": "^2.0.1",
     "nanoid": "^4.0.0",
     "next": "12.2.5",
+    "node-wget": "^0.4.3",
     "rc-upload": "^4.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
