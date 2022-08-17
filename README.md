@@ -7,7 +7,7 @@ This app reads anki deck files (.apkg) and outputs the card texts for easy copyi
 2. Google sheets syncing setup with Ulangi
 
 ## How to use
-1. Go to the demo site TODO
+1. Go to the demo site https://ulangi-anki-import.vercel.app/
 2. Upload your .apkg file
 3. Click on the original/translation text blocks to copy them to the clipboard
 4. Paste into the respective colum in the google sheet you have synced with Ulangi
